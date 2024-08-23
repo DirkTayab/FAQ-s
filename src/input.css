@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-raleway overflow-y-scroll;
+  }
+  .container {
+    @apply max-w-[1600px] w-full px-4 mx-auto;
+  }
+  h1 {
+    @apply lg:text-[80px] text-[38.4px];
+  }
+  h2 {
+    @apply text-[24px];
+  }
+  h3 {
+    @apply text-[20px];
+  }
+  h4 {
+    @apply lg:text-[18px] text-[16px];
+  }
+  p,
+  a {
+    @apply text-[16px];
+  }
+  .toggle__menu {
+    @apply flex flex-col gap-1 z-50 lg:hidden;
+  }
+  .toggle__menu span {
+    @apply content-["*"] bg-black w-[40px] h-[4px] ease-in-out duration-500;
+  }
+  .toggle__menu.open span {
+    @apply content-["*"] bg-black rounded-lg w-10 h-[6px] ease-in-out duration-500;
+  }
+  .toggle__menu.open span:first-child {
+    transform: translate(17px, 13px) rotate(215deg);
+    transition: all 0.5s ease-in-out;
+    @apply w-6;
+  }
+  .toggle__menu.open span:nth-child(2) {
+    transform: translate(0, 8px) rotate(180deg);
+    transition: all 0.5s ease-in-out;
+  }
+  .toggle__menu.open span:last-child {
+    transform: translate(17px, 3px) rotate(145deg);
+    transition: all 0.5s ease-in-out;
+    @apply w-6;
+  }
+  .header__wrapper img {
+    @apply w-[12rem];
+  }
+
+  .header__nav ul {
+    @apply flex flex-col items-center text-center gap-4 lg:flex-row;
+  }
+  .header__nav ul li a {
+    @apply px-[4rem];
+  }
+  .header__content {
+    @apply flex flex-col lg:absolute lg:top-4 lg:right-[13rem] items-center text-center gap-4 lg:flex-row;
+  }
+  .header__items {
+    @apply flex flex-col-reverse fixed top-[5.7rem] right-[-100%] overflow-y-hidden duration-500 h-full bg-white justify-end py-4 gap-4 lg:static lg:bg-transparent lg:flex-col lg:static;
+  }
+  .header__items.open {
+    @apply top-[5.7rem] right-0 duration-500 w-full h-full bg-white justify-end;
+  }
+
+  .footer {
+    @apply bg-primary mt-[8rem] lg:w-[full];
+  }
+  .footer__wrapper {
+    @apply flex flex-col items-center w-full;
+  }
+  .footer__top {
+    @apply flex flex-col text-center py-20 w-[13rem] gap-2 lg:text-start lg:flex-row lg:w-full lg:gap-[17rem];
+  }
+  .footer__top img {
+    @apply h-full lg:w-[15rem];
+  }
+  .footer__btns {
+    @apply flex flex-col lg:w-[15rem] lg:text-center gap-2;
+  }
+  .footer__links {
+    @apply flex gap-[5rem] w-[30rem];
+  }
+  .footer__bottom {
+    @apply flex flex-col lg:flex-row-reverse lg:justify-between border-t-2 border-black/50 w-[99%] items-center pt-8 pb-16 gap-4;
+  }
+}
+@layer components {
+  .btn {
+    @apply py-3 px-10 rounded-md border border-transparent;
+  }
+  .btn.bgblue {
+    @apply bg-hoverblue text-white;
+  }
+  .btn.bgblue.hover {
+    @apply hover:bg-fbsblue;
+  }
+  .btn.bgyellow {
+    @apply bg-fbsyellow text-white;
+  }
+  .btn.bgyellow.bd {
+    @apply border-black lg:bg-transparent lg:text-black;
+  }
+  .btn.bggreen {
+    @apply bg-fbsgreen text-white;
+  }
+  .btn.bggreen.bd {
+    @apply border-black;
+  }
+  .btn.nobg.green {
+    @apply border-fbsgreen bg-transparent;
+  }
+  .btn.bg.hovergreen {
+    @apply border-black hover:bg-fbsgreen;
+  }
+  .bullet{
+    @apply content-[""] inline-block w-[.8rem] h-[.8rem] border-2 border-transparent rounded-full bg-fbsgreen
+  }
+  .bullet.nobg{
+    @apply bg-transparent border-black/30;
+  }
+  .content__title {
+    @apply pt-24 lg:pt-0;
+  }
+  .content__title h2 {
+    @apply lg:py-0;
+  }
+  .content__h1title h1 {
+    @apply font-extralight text-center pt-6 pb-[6rem] lg:pt-[5rem];
+  }
+  .content__tabs h3 {
+    @apply cursor-pointer items-center text-center font-light py-2 lg:text-start;
+  }
+
+  .content__wrapper {
+    @apply hidden;
+  }
+
+  .content__items {
+    @apply py-4;
+  }
+  .content__acc {
+    @apply flex flex-col leading-[2.5rem] p-4;
+  }
+  .content__acc p {
+    @apply py-3;
+  }
+  .content__acc--head {
+    @apply flex items-center;
+  }
+  .content__acc--title {
+    @apply flex justify-between items-center w-[419px] lg:w-full font-semibold cursor-pointer;
+  }
+  .content__acc--head i {
+    @apply duration-300;
+  }
+  .content__acc--head h2{
+    @apply text-fbsgreen font-semibold
+  }
+  .content__text {
+    @apply h-auto max-h-0 overflow-hidden duration-500 text-justify;
+  }
+  .content__display {
+    @apply lg:flex;
+  }
+  /* .content__tabs {
+    @apply lg:w-[100rem];
+  } */
+}
+@layer utilities {
+  .tab.active {
+    @apply underline text-fbsgreen;
+  }
+  .content__wrapper.active {
+    @apply block lg:w-full;
+  }
+  .content__acc--head i.open {
+    @apply rotate-[-180deg] duration-300;
+  }
+  .content__text.open {
+    @apply max-h-[50rem] duration-500 p-3;
+  }
+}
